@@ -15,7 +15,8 @@ namespace ACM.Win
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OrderWin());
+            // Application.Run(new OrderWin());
+            Application.Run(new PedometerWin());
         }
     }
 }
