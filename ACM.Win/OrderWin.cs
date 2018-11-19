@@ -8,6 +8,13 @@ namespace ACM.Win
     {
         private void button1_Click(object sender, EventArgs e)
         {
+
+            Button button = sender as Button;
+
+            if(button != null)
+            {
+                button.Text = "Processing....";
+            }
             PlaceOrder();
         }  // End button1_click
 
@@ -26,10 +33,22 @@ namespace ACM.Win
      
             var orderContoller = new OrderController();
 
+            try
+            {
+                // using named parameters for flags
+                var op = orderContoller.PlaceOrder(customer, order, payment,
+                                          allowSplitOrders: false, emailReceipt: true);
 
-            // using named parameters for flags
-            orderContoller.PlaceOrder(customer, order, payment, 
-                                      allowSplitOrders:false, emailReceipt:true);
+            }
+            catch (ArgumentNullException ex)
+            {
+                // log the issue 
+                // display message to the user that the order was not successful
+                
+            }
+
+
+           
         }
 
 

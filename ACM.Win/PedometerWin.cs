@@ -26,8 +26,21 @@ namespace ACM.Win
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             var customer = new Customer();
-            var result = customer.CalculatePercentOfGoalSteps(this.GoalTextBox.Text,this.StepsTextBox.Text);
-            ResultLabel.Text = $"You reached {result}%  of your goal!";
+
+            try
+            {
+                var result = customer.CalculatePercentOfGoalSteps(this.GoalTextBox.Text,this.StepsTextBox.Text);
+                ResultLabel.Text = $"You reached {result}%  of your goal!";
+
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show($"Your message was not valid: {ex.Message}");
+                ResultLabel.Text = string.Empty;
+                
+            }
+            
+            
 
         }
     }

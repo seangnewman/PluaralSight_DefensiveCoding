@@ -10,7 +10,19 @@ namespace Core.Common
     {
         public void SendEmail(string emailAddress, string v)
         {
-             
+            // I f avalid email address is provided
+           
+
+            try
+            {
+                // Send an email
+            }
+            catch (InvalidOperationException ex)
+            {
+                // log the error
+                //rethrow the original exception (do not include ex, throws new exception)
+                throw;
+            }
         }
     }
 }
